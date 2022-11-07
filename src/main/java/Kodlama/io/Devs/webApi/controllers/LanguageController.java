@@ -1,10 +1,9 @@
 package Kodlama.io.Devs.webApi.controllers;
 
 import Kodlama.io.Devs.business.abstracts.LanguageService;
-import Kodlama.io.Devs.business.concretes.LanguageManager;
-import Kodlama.io.Devs.business.reponses.GetAllLanguageResponse;
-import Kodlama.io.Devs.business.reponses.GetIdLanguageResponse;
-import Kodlama.io.Devs.business.requests.CreateLanguageRequest;
+import Kodlama.io.Devs.business.reponses.language.GetAllLanguageResponse;
+import Kodlama.io.Devs.business.reponses.language.GetIdLanguageResponse;
+import Kodlama.io.Devs.business.requests.language.CreateLanguageRequest;
 import Kodlama.io.Devs.entities.concretes.Language;
 import org.springframework.web.bind.annotation.*;
 

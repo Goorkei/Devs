@@ -1,9 +1,9 @@
 package Kodlama.io.Devs.business.concretes;
 
 import Kodlama.io.Devs.business.abstracts.LanguageService;
-import Kodlama.io.Devs.business.reponses.GetAllLanguageResponse;
-import Kodlama.io.Devs.business.reponses.GetIdLanguageResponse;
-import Kodlama.io.Devs.business.requests.CreateLanguageRequest;
+import Kodlama.io.Devs.business.reponses.language.GetAllLanguageResponse;
+import Kodlama.io.Devs.business.reponses.language.GetIdLanguageResponse;
+import Kodlama.io.Devs.business.requests.language.CreateLanguageRequest;
 import Kodlama.io.Devs.dataAccess.abstacts.LanguageRepository;
 import Kodlama.io.Devs.entities.concretes.Language;
 import org.springframework.stereotype.Service;
@@ -24,14 +24,14 @@ public class LanguageManager implements LanguageService {
     @Override
     public List<GetAllLanguageResponse> getAll() {
         List<Language> languages = languageRepository.findAll();
-        List<GetAllLanguageResponse> programmingLanguagesResponses = new ArrayList<GetAllLanguageResponse>();
+        List<GetAllLanguageResponse> languagesResponses = new ArrayList<GetAllLanguageResponse>();
         for (Language language : languages) {
             GetAllLanguageResponse responseItem = new GetAllLanguageResponse();
             responseItem.setId(language.getId());
             responseItem.setLanguage(language.getLanguage());
-            programmingLanguagesResponses.add(responseItem);
+            languagesResponses.add(responseItem);
         }
-        return programmingLanguagesResponses;
+        return languagesResponses;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class LanguageManager implements LanguageService {
         Language language = new Language();
 
         List<Language> languages = this.languageRepository.findAll();
-        
+
         if (language.getLanguage() != null & language.getLanguage() != "") {
             for (Language templanguage : languages) {
                 if (templanguage.getLanguage().equals(createLanguageRequest.getLanguage())) {
